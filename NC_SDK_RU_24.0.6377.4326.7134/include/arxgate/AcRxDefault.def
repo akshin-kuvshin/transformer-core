@@ -1,0 +1,4 @@
+EXPORTS     
+ncrxEntryPoint		PRIVATE
+; Not supported yet ncrxGetApiVersion	PRIVATE
+

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug ACAD|x64'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)\bin-$(PlatformName)\$(ConfigurationName)</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommand>c:\Program Files\Autodesk\AutoCAD 2021\acad.exe</LocalDebuggerCommand>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug NCAD|x64'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)\bin-$(PlatformName)\$(Configuration)</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommand>c:\Program Files\Nanosoft\nanoCAD x64 23.0\ncad.exe</LocalDebuggerCommand>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release ACAD|x64'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)\bin-$(PlatformName)\$(ConfigurationName)</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommand>c:\Program Files\Autodesk\AutoCAD 2021\acad.exe</LocalDebuggerCommand>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release NCAD|x64'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)\bin-$(PlatformName)\$(Configuration)</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommand>c:\Program Files\Nanosoft\nanoCAD x64 23.0\ncad.exe</LocalDebuggerCommand>
+  </PropertyGroup>
+</Project>

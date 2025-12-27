@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Platforms>x64</Platforms>
+    <Configurations>Debug NCAD;Release NCAD</Configurations>
+    <OutputPath>$(SolutionDir)bin-$(Platform)\$(Configuration)</OutputPath>
+    <OutputPath Condition="'$(Configuration)'=='Debug NCAD'">$(SolutionDir)bin-$(Platform)\Debug MultiCAD</OutputPath>
+    <OutputPath Condition="'$(Configuration)'=='Release NCAD'">$(SolutionDir)bin-$(Platform)\Release MultiCAD</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug NCAD|x64'">
+    <DefineConstants>$(DefineConstants)TRACE;NCAD</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release NCAD|x64'">
+    <DefineConstants>$(DefineConstants)TRACE;NCAD</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
+    <Reference Include="imapimgd">
+      <HintPath>..\..\..\include-$(Platform)\imapimgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MapiBaseTypes">
+      <HintPath>..\..\..\include-$(Platform)\mapibasetypes.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mapimgd">
+      <HintPath>..\..\..\include-$(Platform)\mapimgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,87 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Русский (Россия) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_INP_KWD_CMD         "Open COloring CLipping EXport Exit"
+    IDS_PROMPT_CMD          "Enter an option"
+    IDS_SUPPORT_FORMAT      "All supported formats (*.3ds, *.fbx, *.las,*.laz,*.bin, *.ptx, *.pts, *.pcd, *.txt, *.xyz, *.xyb, *.ply, *.e57, *.rcs, *.rcp,*.npc)|*.3ds;*.fbx;*.las;*.laz;*.bin;*.ptx;*.pts;*.pcd;*.txt;*.xyz;*.xyb;*.ply;*.e57;*.rcs;*.rcp;*.npc|3DS files (*.3ds)|*.3ds|FBX files(*.fbx)|*.fbx|LAS files (*.las)|*.las|LAZ files (*.laz)|*.laz|BIN files (*.bin)|*.bin|PTX files (*.ptx)|*.ptx|PTS files (*.pts)|*.pts|PCD files (*.pcd)|*.pcd|TXT files (*.txt)|*.txt|XYZ files (*.xyz)|*.xyz|XYB files (*.xyb)|*.xyb|PLY files (*.ply)|*.ply|E57 files (*.e57)|*.e57|RCS files (*.rcs)|*.rcs|RCP files (*.rcp)|*.rcp|NanoCad Point Cloud (*.npc)|*.npc||"
+    IDS_PROMPT_LOAD         "Upload point cloud"
+    IDS_INP_FIRST_POINT     "Enter first point"
+    IDS_INP_OPPOSITE_CORNER "Enter opposite corner"
+    IDS_PROMPT_EXPORT       "Export point clouds"
+    IDS_EXPORT_FORMAT       "LAS files (*.las)|*.las|LAZ files (*.laz)|*.laz|BIN files (*.bin)|*.bin|PTX files(*.ptx)|*.ptx|PTS files(*.pts)|*.pts|PCD files(*.pcd)|*.pcd|TXT files(*.txt)|*.txt|XYZ files (*.xyz)|*.xyz|XYB files (*.xyb)|*.xyb|PLY files (*.ply)|*.ply|E57 files (*.e57)|*.e57|RCS files(*.rcs)|*.rcs|RCP files(*.rcp)|*.rcp|FBX files(*.fbx)|*.fbx|3DS files(*.3ds)|*.3ds||"
+    IDS_ERR_OPEN            "Point cloud not loaded"
+    IDS_ERR_WRITING_FILE    "Error writing file"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ERR_CLIPPING        "Point cloud not clipping"
+    IDS_ERR_PAPER           "Command is not executed in paper area"
+END
+
+#endif    // Русский (Россия) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

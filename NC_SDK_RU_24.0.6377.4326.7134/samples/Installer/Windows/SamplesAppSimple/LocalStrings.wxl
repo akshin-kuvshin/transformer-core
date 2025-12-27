@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="ru-ru" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+  <String Id="ProductMainName" Overridable="yes">Примеры SDK для nanoCAD</String>
+  <String Id="ProductNameNC" Overridable="yes">Платформа nanoCAD x64</String>
+  <String Id="PerHostFeatureDescTemplate" Overridable="yes">Установить [ProductName] на %s</String>
+  <String Id="InstallToFeature" Overridable="yes">Установить на...</String>
+  <String Id="InstallToFeatureDescription" Overridable="yes">Установить [ProductName] на указанные платформы.</String>
+  <String Id="NoHostSelectedMessage" Overridable="yes">Необходимо выбрать установку на как минимум одну платформу.</String>
+  <String Id="NoSupportedHostFoundMessage" Overridable="yes">Программа установки не обнаружила на данном компьютере продукт [ProductNameNC]. Пожалуйста, установите продукт [ProductNameNC] и запустите программу установки еще раз.</String>
+  <String Id="NoSupportedHostFoundMessageRepair" Overridable="yes">Программа установки не обнаружила на данном компьютере продукт [ProductNameNC]. Пожалуйста, установите продукт [ProductNameNC] или удалите [ProductName].</String>
+  <String Id="TextForPlugin" Overridable="yes">&amp;Плагин. Добавить во все стартовые конфигурации</String>
+  <String Id="TextForApplication" Overridable="yes">&amp;Приложение. Создать ярлык и стартовую конфигурацию</String>
+  <String Id="TextInstallMode" Overridable="yes">Выберите режим установки:</String>
+  <String Id="InstallDirDlgFolderLabel" Overridable="yes">Установить [ProductName] в:</String>
+</WixLocalization>

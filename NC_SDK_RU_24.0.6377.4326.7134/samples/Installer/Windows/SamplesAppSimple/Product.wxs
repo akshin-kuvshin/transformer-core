@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--$(Copyright)-->
+
+<?include Product.wxi?>
+
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="$(var.ProductId)" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.OemCompanyName)" UpgradeCode="$(var.UpgradeCode)">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <UIRef Id="WixUI_FeatureTree_NCadSDK" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION"/>
+    <Property Id="ARPNOMODIFY" Value="1"/>
+    <Property Id="NC_INSTALL_MODE" Value="PLUGIN" Secure="yes">
+        <RegistrySearch Id="NC_INSTALL_MODE_Signature" Root="HKLM" Key="$(var.ProductRegistryKey)" Name="NC_INSTALL_MODE" Type="raw" />
+    </Property>
+    <Property Id="ArgKeys" Value="-r SamplesApp -g"/>
+    <Property Id="SDK_INSTALLLOCATION" Secure="yes">
+      <RegistrySearch Id="INSTALLLOCATION_Signature" Root="HKLM" Key="$(var.ProductRegistryKey)" Name="InstallLocation" Type="directory"/>
+    </Property>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Component Id="ProductRegistryKey">
+        <RemoveFolder Id="ProgramMenuShortcutFolder_RD" Directory="ProgramMenuShortcutFolder" On="uninstall" />
+          <RemoveFolder Id="ShortcutVendorFolder_RD" Directory="ShortcutVendorFolder" On="uninstall" />
+          <RemoveFolder Id="ProgramMenuFolder_RD" Directory="ProgramMenuFolder" On="uninstall" />
+        <RegistryKey Root="HKLM" Key="$(var.ProductRegistryKey)" />
+        <RegistryValue Id="InstallPath" Root="HKLM" Key="$(var.ProductRegistryKey)" Name="InstallLocation" Value="[[WIXUI_INSTALLDIR]]" Action="write" Type="string"/>
+        <RegistryValue Id="InstallerBuild" Root="HKLM" Key="$(var.ProductRegistryKey)" Name="InstallerBuild" Value="$(var.VersionSetupBuild)" Action="write" Type="string"/>
+        <RegistryValue Id="NC_INSTALL_MODE" Root="HKLM" Key="$(var.ProductRegistryKey)" Name="NC_INSTALL_MODE" Value="[NC_INSTALL_MODE]" Action="write" Type="string"/>
+      </Component>
+      <Directory Id="DesktopFolder" SourceName="Desktop" />	
+      <Directory Id="ProgramMenuFolder" Name="ProgMenu">
+        <Directory Id="ShortcutVendorFolder" Name="$(var.OemDirectoryName)">
+          <Directory Id="ProgramMenuShortcutFolder" Name="$(var.ProductFolderName)" />
+        </Directory>
+      </Directory>
+
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="VendorFolder" Name="$(var.OemDirectoryName)">
+          <Directory Id="INSTALLLOCATION" Name="$(var.ProductFolderName)">
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="InstallTo" Title="!(loc.InstallToFeature)" Description="!(loc.InstallToFeatureDescription)" Level="1" Display="expand" ConfigurableDirectory="INSTALLLOCATION">
+      <ComponentRef Id="ProductRegistryKey" />
+      <Feature Id="NCADx64" Title="nanoCAD x64 $(var.VersionMajor).$(var.VersionMinor)" Level="0">
+          <ComponentGroupRef Id="NCADx64_family" />
+          <Condition Level="1">$(var.Condition_ExistNC_SDK)</Condition>
+      </Feature>
+    </Feature>
+
+    <Property Id="ARPPRODUCTICON" Value="ProductIcon" />
+    <Icon Id="ProductIcon" SourceFile="$(var.ArdIconFile)"/>
+    <Property Id="ProductRegistryKey" Value="$(var.ProductRegistryKey)" />
+    <Property Id="APPPACKAGE_PRODUCTNAME" Value="$(var.AppPackageProductName)" />
+    <Property Id="CAMessageTitleTemplate" Value="$(var.ProductName)" />
+    <Property Id="NoHostSelectedMessage" Value="!(loc.NoHostSelectedMessage)" />
+    <Property Id="PerHostFeatureDescTemplate" Value="!(loc.PerHostFeatureDescTemplate)" />
+    <Property Id="NoSupportedHostFoundMessage" Value="!(loc.NoSupportedHostFoundMessage)" />
+    <Property Id="ProductNameNC" Value="$(var.ProductNameNC)" />
+
+    <Property Id="NCADX64_LOCATION" Secure="yes">
+        <RegistrySearch Id="NCADX64_Signature" Root="HKLM" Key="SOFTWARE\Nanosoft\nanoCAD x64\$(var.VersionMajor).$(var.VersionMinor)" Name="InstallLocation" Type="directory" Win64="yes" />
+    </Property>
+
+    <WixVariable Id="WixUIBannerBmp" Value="ncadsdk_small.bmp"/>
+    <WixVariable Id="WixUIDialogBmp" Value="ncadsdk_big.bmp"/>
+    <WixVariable Id="WixUILicenseRtf" Value="ReplaceMe_License.rtf"/>
+
+    <AdminUISequence>
+      <LaunchConditions/>
+    </AdminUISequence>
+    <AdminExecuteSequence>
+      <LaunchConditions/>
+    </AdminExecuteSequence>
+  </Product>
+</Wix>

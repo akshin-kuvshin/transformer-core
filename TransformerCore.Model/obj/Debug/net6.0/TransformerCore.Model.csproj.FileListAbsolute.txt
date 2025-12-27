@@ -1,0 +1,11 @@
+C:\Users\s24.155\source\repos\TransformerCore.Model\bin\Debug\net6.0\TransformerCore.Model.deps.json
+C:\Users\s24.155\source\repos\TransformerCore.Model\bin\Debug\net6.0\TransformerCore.Model.dll
+C:\Users\s24.155\source\repos\TransformerCore.Model\bin\Debug\net6.0\TransformerCore.Model.pdb
+C:\Users\s24.155\source\repos\TransformerCore.Model\obj\Debug\net6.0\TransformerCore.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s24.155\source\repos\TransformerCore.Model\obj\Debug\net6.0\TransformerCore.Model.AssemblyInfoInputs.cache
+C:\Users\s24.155\source\repos\TransformerCore.Model\obj\Debug\net6.0\TransformerCore.Model.AssemblyInfo.cs
+C:\Users\s24.155\source\repos\TransformerCore.Model\obj\Debug\net6.0\TransformerCore.Model.csproj.CoreCompileInputs.cache
+C:\Users\s24.155\source\repos\TransformerCore.Model\obj\Debug\net6.0\TransformerCore.Model.dll
+C:\Users\s24.155\source\repos\TransformerCore.Model\obj\Debug\net6.0\refint\TransformerCore.Model.dll
+C:\Users\s24.155\source\repos\TransformerCore.Model\obj\Debug\net6.0\TransformerCore.Model.pdb
+C:\Users\s24.155\source\repos\TransformerCore.Model\obj\Debug\net6.0\ref\TransformerCore.Model.dll

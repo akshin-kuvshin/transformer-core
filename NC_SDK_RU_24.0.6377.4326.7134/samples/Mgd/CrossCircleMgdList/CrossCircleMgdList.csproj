@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Platforms>x64</Platforms>
+    <Configurations>Debug NCAD;Release NCAD</Configurations>
+    <OutputPath>$(SolutionDir)bin-$(Platform)\$(Configuration)</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug NCAD|x64'">
+    <DefineConstants>$(DefineConstants)TRACE;NCAD</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release NCAD|x64'">
+    <DefineConstants>$(DefineConstants)TRACE;NCAD</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\NRX\CrossCircle\CrossCircleMg\MgCrossCircle.vcxproj">
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
+    <Reference Include="hostdbmgd">
+      <HintPath>..\..\..\include-$(Platform)\hostdbmgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="hostmgd">
+      <HintPath>..\..\..\include-$(Platform)\hostmgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NrxGateMgd">
+      <HintPath>..\..\..\include-$(Platform)\nrxgatemgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

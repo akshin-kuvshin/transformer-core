@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--$(Copyright)-->
+
+<?include Product.wxi?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="$(var.ProductId)" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.OemCompanyName)" UpgradeCode="$(var.UpgradeCode)">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <UIRef Id="WixUI_FeatureTree_NCadSDK" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION"/>
+    <Property Id="NC_INSTALL_MODE" Value="PLUGIN">
+        <RegistrySearch Id="NC_INSTALL_MODE_Signature" Root="HKLM" Key="$(var.ProductRegistryKey)" Name="NC_INSTALL_MODE" Type="raw" />
+    </Property>
+    <Property Id="ArgKeys" Value="-r SamplesApp -g"/>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Component Id="ProductRegistryKey">
+        <RegistryKey Root="HKLM" Key="$(var.ProductRegistryKey)" />
+        <RegistryValue Id="InstallPath" Root="HKLM" Key="$(var.ProductRegistryKey)" Name="InstallLocation" Value="[[WIXUI_INSTALLDIR]]" Action="write" Type="string"/>
+        <RegistryValue Id="InstallerBuild" Root="HKLM" Key="$(var.ProductRegistryKey)" Name="InstallerBuild" Value="$(var.VersionSetupBuild)" Action="write" Type="string"/>
+        <RegistryValue Id="NC_INSTALL_MODE" Root="HKLM" Key="$(var.ProductRegistryKey)" Name="NC_INSTALL_MODE" Value="[NC_INSTALL_MODE]" Action="write" Type="string"/>
+      </Component>
+      <!-- Force to create shortcut table-->
+      <Directory Id="INSTALLDIR">
+        <Component Id="DummyForShortcutTable" Guid="{EB5A7789-A969-4F23-AEE9-5E5600763FF0}" KeyPath="yes">
+          <Condition>0</Condition>
+          <RemoveFolder Id="ProgramMenuShortcutFolder_RD" Directory="ProgramMenuShortcutFolder" On="uninstall" />
+          <RemoveFolder Id="ShortcutVendorFolder_RD" Directory="ShortcutVendorFolder" On="uninstall" />
+          <RemoveFolder Id="ProgramMenuFolder_RD" Directory="ProgramMenuFolder" On="uninstall" />
+          <Shortcut Id="DummyShortcut" Directory="INSTALLDIR" Name="DummyShortcut"/>
+        </Component>
+      </Directory>
+      <Directory Id="DesktopFolder" SourceName="Desktop" /> 
+      <Directory Id="ProgramMenuFolder" Name="ProgMenu">
+        <Directory Id="ShortcutVendorFolder" Name="$(var.OemDirectoryName)">
+          <Directory Id="ProgramMenuShortcutFolder" Name="$(var.ProductFolderName)" />
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="VendorFolder" Name="$(var.OemDirectoryName)">
+          <Directory Id="INSTALLLOCATION" Name="$(var.ProductFolderName)">
+            <Directory Id="NCAD210" Name="NCAD210"/>
+            <Directory Id="NCAD210x64" Name="NCAD210x64"/>
+            <Directory Id="NCAD220" Name="NCAD220"/>
+            <Directory Id="NCAD220x64" Name="NCAD220x64"/>
+            <Directory Id="NCAD230x64" Name="NCAD230x64"/>
+            <Directory Id="NCAD240x64" Name="NCAD240x64"/>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="InstallTo" Title="!(loc.InstallToFeature)" Description="!(loc.InstallToFeatureDescription)" Level="1" Display="expand" ConfigurableDirectory="INSTALLLOCATION">
+      <ComponentRef Id="ProductRegistryKey" />
+      <ComponentRef Id="DummyForShortcutTable" />
+      <Feature Id="NCAD220" Title="NCAD220" Level="0"  Display="hidden">
+        <ComponentGroupRef Id="NCAD220_family" />
+      </Feature>
+      <Feature Id="NCAD220x64" Title="NCAD220x64" Level="0"  Display="hidden">
+        <ComponentGroupRef Id="NCAD220x64_family" />
+      </Feature>
+      <Feature Id="NCAD230x64" Title="NCAD230x64" Level="0"  Display="hidden">
+        <ComponentGroupRef Id="NCAD230x64_family" />
+      </Feature>
+      <Feature Id="NCAD240x64" Title="NCAD240x64" Level="0"  Display="hidden">
+        <ComponentGroupRef Id="NCAD240x64_family" />
+      </Feature>
+    </Feature>
+
+    <Property Id="ARPPRODUCTICON" Value="ProductIcon" />
+    <Icon Id="ProductIcon" SourceFile="$(var.ArdIconFile)"/>
+    <Property Id="PrefixShortcutName" Value="!(loc.PrefixShortcutName)"/>
+    <Property Id="ProductRegistryKey" Value="$(var.ProductRegistryKey)" />
+    <Property Id="APPPACKAGE_PRODUCTNAME" Value="$(var.AppPackageProductName)" />
+    <Property Id="CAMessageTitleTemplate" Value="$(var.ProductName)" />
+    <Property Id="NoHostSelectedMessage" Value="!(loc.NoHostSelectedMessage)" />
+    <Property Id="PerHostFeatureDescTemplate" Value="!(loc.PerHostFeatureDescTemplate)" />
+    <Property Id="NoSupportedHostFoundMessage" Value="!(loc.NoSupportedHostFoundMessage)" />
+
+    <WixVariable Id="WixUIBannerBmp" Value="ncadsdk_small.bmp"/>
+    <WixVariable Id="WixUIDialogBmp" Value="ncadsdk_big.bmp"/>
+    <WixVariable Id="WixUILicenseRtf" Value="ReplaceMe_License.rtf"/>
+
+    <AdminUISequence>
+      <LaunchConditions/>
+    </AdminUISequence>
+    <AdminExecuteSequence>
+      <LaunchConditions/>
+    </AdminExecuteSequence>
+
+    <CustomTable Id="SupportedHosts">
+      <Column Id="HostOEM" PrimaryKey="yes" Type="string"/>
+      <Column Id="HostKey" PrimaryKey="yes" Type="string"/>
+      <Column Id="KeyFlags" PrimaryKey="yes" Type="int" Width="4"/>
+      <Column Id="_Feature" Type="string" KeyTable="Feature" KeyColumn="1" Width="38" Nullable="yes"/>
+      <Column Id="APIVersion" PrimaryKey="no" Type="string"/>
+
+      <Row>
+        <Data Column="HostOEM">17</Data>
+        <Data Column="HostKey">Software\Nanosoft</Data>
+        <Data Column="KeyFlags">0</Data>
+        <Data Column="_Feature">NCAD220</Data>
+        <Data Column="APIVersion">2200.000</Data>
+      </Row>
+      <Row>
+        <Data Column="HostOEM">18</Data>
+        <Data Column="HostKey">Software\Nanosoft</Data>
+        <Data Column="KeyFlags">256</Data>
+        <Data Column="_Feature">NCAD220x64</Data>
+        <Data Column="APIVersion">2200.000</Data>
+      </Row>
+      <Row>
+        <Data Column="HostOEM">19</Data>
+        <Data Column="HostKey">Software\Nanosoft</Data>
+        <Data Column="KeyFlags">256</Data>
+        <Data Column="_Feature">NCAD230x64</Data>
+        <Data Column="APIVersion">2300.000</Data>
+      </Row>
+      <Row>
+        <Data Column="HostOEM">20</Data>
+        <Data Column="HostKey">Software\Nanosoft</Data>
+        <Data Column="KeyFlags">256</Data>
+        <Data Column="_Feature">NCAD240x64</Data>
+        <Data Column="APIVersion">2400.000</Data>
+      </Row>
+    </CustomTable>
+  </Product>
+</Wix>

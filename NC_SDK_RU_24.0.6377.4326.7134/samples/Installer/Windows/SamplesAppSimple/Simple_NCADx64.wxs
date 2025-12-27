@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include Product.wxi?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <ComponentGroup Id="NCADx64_family" Directory="INSTALLLOCATION" >
+      <Component>
+        <File Source="NCADx64.package" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_NCadSDK.cfg" Source="..\..\..\Menu\NCadSDK.cfg" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_NCadSDK.cuix" Source="..\..\..\Menu\NCadSDK.cuix" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_MenuRes.dll" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\MenuRes.dll" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_hello_nsf.nsf" Source="..\..\..\COM\NSF\hello_nsf.nsf" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_Tiles.lsp" Source="..\..\..\Lisp\Tiles\Tiles.lsp" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_helloworld.dcl" Source="..\..\..\Lisp\DCL\helloworld.dcl" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_helloworld.lsp" Source="..\..\..\Lisp\DCL\helloworld.lsp" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_listdialog.dcl" Source="..\..\..\Lisp\DCL\listdialog.dcl" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_listdialog.lsp" Source="..\..\..\Lisp\DCL\listdialog.lsp" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_messagebox.dcl" Source="..\..\..\Lisp\DCL\messagebox.dcl" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_messagebox.lsp" Source="..\..\..\Lisp\DCL\messagebox.lsp" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_sindialog.dcl" Source="..\..\..\Lisp\DCL\sindialog.dcl" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_sindialog.lsp" Source="..\..\..\Lisp\DCL\sindialog.lsp" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_HelloNRX.nrx" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\HelloNRX.nrx" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_CrossCircle.nrx" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\CrossCircle.nrx" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_CrossCircleUI.nrx" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\CrossCircleUI.nrx" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_CrossCircleMg.deps.json" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\CrossCircleMg.deps.json" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_CrossCircleMg.runtimeconfig.json" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\CrossCircleMg.runtimeconfig.json" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_CrossCircleMg.dll" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\CrossCircleMg.dll" />
+      </Component>
+      <Component>
+        <File Id="SDK230x64_CrossCircleMgdList.deps.json" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\CrossCircleMgdList.deps.json" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_CrossCircleMgdList.dll" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\CrossCircleMgdList.dll" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_PointCloud.nrx" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\PointCloud.nrx" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_HelloHost.dll" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\HelloHost.dll" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_HelloHost.deps.json" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\HelloHost.deps.json" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_HelloHostVB.dll" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\HelloHostVB.dll" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_HelloHostVB.deps.json" Source="$(var.SimpleBinRoot64)\$(var.Configuration) NCAD\HelloHostVB.deps.json" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_SymbolsMgd.dll" Source="$(var.SimpleBinRoot64)\$(var.Configuration) MultiCAD\SymbolsMgd.dll" />
+      </Component>
+      <Component>
+        <File Id="SDKx64_CustomObjects.dll" Source="$(var.SimpleBinRoot64)\$(var.Configuration) MultiCAD\CustomObjects.dll" />
+      </Component>
+      <Component Id="_Shortcut_NCADx64" Guid="*">
+        <Condition>NC_INSTALL_MODE="APPLICATION"</Condition>
+        <RegistryValue Id="RegVal_NC_CU" Root="HKCU" Key="$(var.ProductRegistryKey)" Name="_Shortcut_NCADx64" Value="" Type="string" KeyPath="yes" />
+        <Shortcut Id="Shortcut_NC_NC" Directory="DesktopFolder" Name="$(var.ShortcutName)" ShortName="SDKNAN" Target="[NCADX64_LOCATION]nCad.exe" Arguments="[ArgKeys] &quot;[INSTALLLOCATION]NCADx64.package&quot;" Icon="ProductIcon" Show="normal" Advertise="no" />
+        <Shortcut Id="Shortcut_NC_PD" Directory="ProgramMenuShortcutFolder" Name="$(var.ShortcutName)" ShortName="SDKNAN" Target="[NCADX64_LOCATION]nCad.exe" Arguments="[ArgKeys] &quot;[INSTALLLOCATION]NCADx64.package&quot;" Icon="ProductIcon" Show="normal" Advertise="no" />
+      </Component>
+      <Component Id="_Plugin_NCADx64" Guid="*" Win64="yes">
+        <Condition>NC_INSTALL_MODE="PLUGIN"</Condition>
+        <RegistryValue Id="RegVal_NC_LM" Root="HKLM" Key="SOFTWARE\Nanosoft\nanoCAD $(var.Platform)\$(var.VersionMajor).$(var.VersionMinor)\Applications\[ProductName]" Name="Package" Value="[INSTALLLOCATION]NCADx64.package" Type="string" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

@@ -1,0 +1,17 @@
+C:\Users\s24.155\source\repos\TransformerCore.Builder\bin\Debug\net6.0\TransformerCore.Builder.deps.json
+C:\Users\s24.155\source\repos\TransformerCore.Builder\bin\Debug\net6.0\TransformerCore.Builder.dll
+C:\Users\s24.155\source\repos\TransformerCore.Builder\bin\Debug\net6.0\TransformerCore.Builder.pdb
+C:\Users\s24.155\source\repos\TransformerCore.Builder\bin\Debug\net6.0\hostdbmgd.dll
+C:\Users\s24.155\source\repos\TransformerCore.Builder\bin\Debug\net6.0\hostmgd.dll
+C:\Users\s24.155\source\repos\TransformerCore.Builder\bin\Debug\net6.0\TransformerCore.Model.dll
+C:\Users\s24.155\source\repos\TransformerCore.Builder\bin\Debug\net6.0\TransformerCore.Model.pdb
+C:\Users\s24.155\source\repos\TransformerCore.Builder\obj\Debug\net6.0\TransformerCore.Builder.csproj.AssemblyReference.cache
+C:\Users\s24.155\source\repos\TransformerCore.Builder\obj\Debug\net6.0\TransformerCore.Builder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s24.155\source\repos\TransformerCore.Builder\obj\Debug\net6.0\TransformerCore.Builder.AssemblyInfoInputs.cache
+C:\Users\s24.155\source\repos\TransformerCore.Builder\obj\Debug\net6.0\TransformerCore.Builder.AssemblyInfo.cs
+C:\Users\s24.155\source\repos\TransformerCore.Builder\obj\Debug\net6.0\TransformerCore.Builder.csproj.CoreCompileInputs.cache
+C:\Users\s24.155\source\repos\TransformerCore.Builder\obj\Debug\net6.0\Transfor.512B77E1.Up2Date
+C:\Users\s24.155\source\repos\TransformerCore.Builder\obj\Debug\net6.0\TransformerCore.Builder.dll
+C:\Users\s24.155\source\repos\TransformerCore.Builder\obj\Debug\net6.0\refint\TransformerCore.Builder.dll
+C:\Users\s24.155\source\repos\TransformerCore.Builder\obj\Debug\net6.0\TransformerCore.Builder.pdb
+C:\Users\s24.155\source\repos\TransformerCore.Builder\obj\Debug\net6.0\ref\TransformerCore.Builder.dll

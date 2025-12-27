@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>HelloHostVB</RootNamespace>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <PlatformCPP>$(Platform)</PlatformCPP>
+    <Platforms>x64</Platforms>
+    <Configurations>Debug NCAD;Release NCAD</Configurations>
+    <OutputPath>$(SolutionDir)bin-$(PlatformCPP)\$(Configuration)</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug NCAD|x64'">
+    <DefineDebug>True</DefineDebug>
+    <DefineConstants>NCAD</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release NCAD|x64'">
+    <DefineConstants>NCAD</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="My Project\**" />
+    <EmbeddedResource Remove="My Project\**" />
+    <None Remove="My Project\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
+    <Reference Include="hostdbmgd">
+      <HintPath>..\..\..\include-$(PlatformCPP)\hostdbmgd.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="hostmgd">
+      <HintPath>..\..\..\include-$(PlatformCPP)\hostmgd.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+
+</Project>

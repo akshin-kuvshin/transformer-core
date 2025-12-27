@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TransformerCore.Builder\TransformerCore.Builder.csproj" />
+    <ProjectReference Include="..\TransformerCore.Model\TransformerCore.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="hostdbmgd">
+      <HintPath>..\NC_SDK_RU_24.0.6377.4326.7134\include-x64\hostdbmgd.dll</HintPath>
+    </Reference>
+    <Reference Include="hostmgd">
+      <HintPath>..\NC_SDK_RU_24.0.6377.4326.7134\include-x64\hostmgd.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
