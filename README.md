@@ -6,6 +6,18 @@
 
 
 
+### Contents:
+
+1. [Description](#description);
+2. [Tools](#tools);
+3. [Launch](#launch).
+
+
+
+<hr/>
+
+
+
 ### Description:
 
 **TransformerCore** is a **plug-in for NanoCAD** that implements such a detail as **the core of an electrical transformer** (in simple words: the three-dimensional letter 'E').
@@ -19,12 +31,20 @@ This work was created _in the framework of a training practice_ at **IAMCS NR TS
 
 
 
+<hr/>
+
+
+
 ### Tools:
 
 - .NET 6;
 - C#;
 - WinForms;
 - NanoCAD 24 SDK.
+
+
+
+<hr/>
 
 
 
